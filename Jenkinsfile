@@ -12,7 +12,6 @@ pipeline {
 	      }      	
         }
       }    
-    }
       stage('Publish to Exchange ') {
         when { branch 'develop' }
         steps {
@@ -28,4 +27,5 @@ pipeline {
           }
         }
       }    
+    }
 }
