@@ -16,10 +16,10 @@ pipeline {
 	            passwordVariable: 'PASSWORD')]) {
 	              sh "mvn clean install"
 	            }
-            }
-          }
-        }
+            	}
+          	}
+          
       }    
-		}
 	}
+  }
 }
