@@ -101,6 +101,7 @@ pipeline {
       IMAGE = readMavenPom().getArtifactId()
       VERSION = readMavenPom().getVersion()
     }
+    stages {
       stage('Set global variables and check naming conventions') {
         steps {
           script {
@@ -199,7 +200,6 @@ pipeline {
           }
         }
       }
-    stages {
       stage('Build Application') {
         steps {
           script {
