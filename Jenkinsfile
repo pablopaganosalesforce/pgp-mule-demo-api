@@ -229,7 +229,7 @@ pipeline {
 	            withCredentials([usernamePassword(credentialsId: 'mule_ppaganosalesforcemia_connected_app_credentials',
 	            usernameVariable: 'USERNAME',
 	            passwordVariable: 'PASSWORD'),
-	            usernamePassword(credentialsId: 'mule_anypointPlatform_dev_credentials',
+	            usernamePassword(credentialsId: 'mule_ppaganosalesforcemia_dev_credentials',
 	            usernameVariable: 'ANYPOINT_CLIENT_ID',
 	            passwordVariable: 'ANYPOINT_CLIENT_SECRET')]) {
 	              sh "mvn deploy -settings $MAVEN_SETTINGS -Dclient_id=$USERNAME -Dclient_secret=$PASSWORD \
