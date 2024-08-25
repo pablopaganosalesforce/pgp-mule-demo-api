@@ -105,9 +105,6 @@ pipeline {
       stage('Set global variables and check naming conventions') {
         steps {
           script {
-
-            configFileProvider(
-                [configFile(fileId: "config_pipeline_global.yaml", variable: 'config_pipeline_global')]) {
                 if (env.BRANCH_NAME.contains('develop')) {
 	               ENV_APPLICATION_NAME=ENV_APPLICATION_NAME_DEV
 	               ENVIRONMENT=ENVIRONMENT_DEV
@@ -196,7 +193,7 @@ pipeline {
                 //test pipeline-multibranch-bradfl-poc-cicd-sapi-v1-impl_config.properties
                 //String PROPIEDAD1 = getDefaultProperty("$ENV_APPLICATION_NAME","PROPIEDAD1",config_properties_file).replace("'","")
                 //echo "PROPIEDAD1: $PROPIEDAD1"
-            }
+
           }
         }
       }
