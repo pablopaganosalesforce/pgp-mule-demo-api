@@ -29,6 +29,50 @@
 				<artifactId>mule-maven-plugin</artifactId>
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
+				<configuration>
+					<cloudhub2Deployment>
+						<artifact>target/${project.artifactId}-${project.version}-${mule.app.classifier}.jar</artifact>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<provider>MC</provider>
+						<server>${cloudhub2.mavenServerId}</server>
+						<businessGroupId>${cloudhub2.businessGroupId}</businessGroupId>
+						<environment>${cloudhub2.environment}</environment>
+						<target>${cloudhub2.target}</target>
+						<muleVersion>${cloudhub2.muleVersion}</muleVersion>
+						<releaseChannel>${cloudhub2.releaseChannel}</releaseChannel>
+						<javaVersion>${cloudhub2.javaVersion}</javaVersion>
+						<applicationName>${cloudhub2.applicationName}</applicationName>
+						<replicas>${cloudhub2.replicas}</replicas>
+						<vCores>${cloudhub2.vCores}</vCores>
+						<deploymentTimeout>${cloudhub2.deploymentTimeout}</deploymentTimeout>
+						<skipDeploymentVerification>${cloudhub2.skipDeploymentVerification}</skipDeploymentVerification>
+						<deploymentSettings>
+							<updateStrategy>${cloudhub2.updateStrategy}</updateStrategy>
+							<http>
+								<inbound>
+									<forwardSslSession>${cloudhub2.forwardSslSession}</forwardSslSession>
+									<lastMileSecurity>${cloudhub2.lastMileSecurity}</lastMileSecurity>
+								</inbound>
+							</http>
+						</deploymentSettings>
+						<integrations>
+							<services>
+								<objectStoreV2>
+									<enabled>${cloudhub2.objectStoreV2}</enabled>
+								</objectStoreV2>
+							</services>
+						</integrations>
+						<properties>
+							<mule.env>${mule.environment}</mule.env>
+							<mule.key>${mule.encryptionKey}</mule.key>
+							<anypoint.platform.client_id>${anypoint.platform.clientId}</anypoint.platform.client_id>
+							<anypoint.platform.client_secret>${anypoint.platform.clientSecret}</anypoint.platform.client_secret>
+							<anypoint.platform.config.analytics.agent.enabled>${anypoint.platform.enableMonitoring}</anypoint.platform.config.analytics.agent.enabled>
+							<anypoint.platform.visualizer.layer>${anypoint.platform.visualizerLayer}</anypoint.platform.visualizer.layer>
+							<anypoint.platform.gatekeeper>${anypoint.platform.apiManagerStatus}</anypoint.platform.gatekeeper>
+						</properties>
+					</cloudhub2Deployment>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
