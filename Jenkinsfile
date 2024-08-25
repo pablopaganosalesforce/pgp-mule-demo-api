@@ -128,8 +128,9 @@ pipeline {
 	            }
 	            //Set pom.xml variables
                 def file = readFile "pom.xml"
-                /*
+
 	            def pomXml = new XmlSlurper().parseText(file)
+	            /*
 	            PARENT_VERSION = pomXml.parent.version.toString()
 	            PARENT_ARTIFACT_ID = pomXml.parent.artifactId.toString()
 	            */
