@@ -4,7 +4,7 @@
 
 	<groupId>e2db758a-a779-46e3-a4f1-e3e8522a390d</groupId>
 	<artifactId>pgp-mule-demo-api</artifactId>
-	<version>1.0.4-SNAPSHOT</version>
+	<version>1.0.5-SNAPSHOT</version>
 	<packaging>mule-application</packaging>
 
 	<name>pgp-mule-demo-api</name>

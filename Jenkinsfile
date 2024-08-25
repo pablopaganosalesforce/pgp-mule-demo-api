@@ -149,6 +149,7 @@ pipeline {
 	            if (ARTIFACT_ID.contains('eapi')) {
 	              VISUALIZER_LAYER="Experience"
 	            }
+	              VISUALIZER_LAYER="System"
                 String pathLocalEnvFile= "pipeline/" + ENV_APPLICATION_NAME + ".properties"
                 local_env_properties_file = readFile pathLocalEnvFile
 	            //Set global variables
