@@ -52,7 +52,7 @@ import groovy.json.JsonOutput
     def access_token
     def updatedJsonContent
     def gitBranch
-    def sonarProjectName
+    //def sonarProjectName
     def GIT_URL_ENV
 //Variables de Jenkins
     String LINK_BUILD_URL=''
@@ -233,6 +233,7 @@ pipeline {
 	            usernamePassword(credentialsId: 'mule_ppaganosalesforcemia_dev_credentials',
 	            usernameVariable: 'ANYPOINT_CLIENT_ID',
 	            passwordVariable: 'ANYPOINT_CLIENT_SECRET')]) {
+                try {
 	              sh "mvn deploy -settings $MAVEN_SETTINGS -Dclient_id=$USERNAME -Dclient_secret=$PASSWORD \
 	              -DmuleDeploy -Dcloudhub2.target=$PRIVATE_SPACE \
 	              -Dcloudhub2.mavenServerId=$MAVEN_SERVER_ID -Dcloudhub2.applicationName=$APPLICATION_NAME \
@@ -245,9 +246,11 @@ pipeline {
 				  -Dcloudhub2.lastMileSecurity=$LAST_MILE_SECURITY -Dcloudhub2.objectStoreV2=$OBJECT_STORE_V2 \
                   -Dmule.encryptionKey=$ENCRYPTION_KEY -Dmule.environment=$ENVIRONMENT -Danypoint.platform.clientId=$ANYPOINT_CLIENT_ID \
 				  -Danypoint.platform.clientSecret=$ANYPOINT_CLIENT_SECRET -Danypoint.platform.enableMonitoring=$ENABLE_MONITORING \
-				  -Danypoint.platform.visualizerLayer=$VISUALIZER_LAYER -Danypoint.platform.apiManagerStatus=$API_MANAGER_STATUS \
-                  "
-
+				  -Danypoint.platform.visualizerLayer=$VISUALIZER_LAYER -Danypoint.platform.apiManagerStatus=$API_MANAGER_STATUS "
+                } catch (Exception e) {
+                    echo 'Jenkins Exception occurred: ' + e.toString()
+                      //echo 'Jenkins Exception occurred'
+                }
 	            }
 	         }
           }
