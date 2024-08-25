@@ -380,4 +380,3 @@ String getDefaultProperty(String env,String propName,String mule_properties_file
 	String property = properties.getProperty(propName)
 	return property
 }
-S
